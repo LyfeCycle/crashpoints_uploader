@@ -5,7 +5,7 @@ require 'pry'
 
 base_uri = 'http://localhost:3000/locations'
 
-# reset the database (TESTING ONLY)
+# reset the database (TESTING ONLY!)
 ###################################puts HTTParty.post(base_uri + '/reset', :headers => { 'Content-Type' => 'application/json' })
 
 # open spreadsheet
@@ -26,7 +26,7 @@ spreadsheet.sheet(0).each_with_index(address: 'Address', doored: 'Doored', area:
     point[:latitude] = location['lat'].to_s
     point[:tag] = (row[:doored].to_i==1) ? "dooring" : "crash"
     # add to database
-    puts HTTParty.post(base_uri, 
+    puts "row #{index}/#{end_row}: " + HTTParty.post(base_uri, 
       :body => point.to_json, 
       :headers => { 'Content-Type' => 'application/json' }
     )
