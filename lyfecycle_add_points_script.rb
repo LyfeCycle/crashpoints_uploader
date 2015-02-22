@@ -3,10 +3,10 @@ require 'httparty'
 require 'geocoder'
 require 'pry'
 
-base_uri = 'http://localhost:3000/locations'
+base_uri = 'http://lyfecycle-api.herokuapp.com/locations'
 
 # reset the database (TESTING ONLY)
-# puts HTTParty.post(base_uri + '/reset', :headers => { 'Content-Type' => 'application/json' })
+################################### puts HTTParty.post(base_uri + '/reset', :headers => { 'Content-Type' => 'application/json' })
 
 # open spreadsheet
 spreadsheet = Roo::Spreadsheet.open("./bike-collision-database.xlsx")
