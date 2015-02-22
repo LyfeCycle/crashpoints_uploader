@@ -6,7 +6,7 @@ require 'pry'
 base_uri = 'http://lyfecycle-api.herokuapp.com/locations'
 
 # reset the database (TESTING ONLY)
-################################### puts HTTParty.post(base_uri + '/reset', :headers => { 'Content-Type' => 'application/json' })
+###################################puts HTTParty.post(base_uri + '/reset', :headers => { 'Content-Type' => 'application/json' })
 
 # open spreadsheet
 spreadsheet = Roo::Spreadsheet.open("./bike-collision-database.xlsx")
@@ -21,7 +21,7 @@ spreadsheet.sheet(0).each(address: 'Address', doored: 'Doored', area: 'PlanningD
     # construct the json for the new location
     point[:longitude] = location['lng'].to_s
     point[:latitude] = location['lat'].to_s
-    point[:tag] = (row['doored']==1) ? "dooring" : "crash"
+    point[:tag] = (row[:doored].to_i==1) ? "dooring" : "crash"
     # add to database
     puts HTTParty.post(base_uri, 
       :body => point.to_json, 
