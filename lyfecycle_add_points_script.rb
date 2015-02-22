@@ -5,10 +5,8 @@ require 'pry'
 
 base_uri = 'http://localhost:3000/locations'
 
-# reset the database
-puts HTTParty.post(base_uri + '/reset',
-      :headers => { 'Content-Type' => 'application/json' }
-    )
+# reset the database (TESTING ONLY)
+# puts HTTParty.post(base_uri + '/reset', :headers => { 'Content-Type' => 'application/json' })
 
 # open spreadsheet
 spreadsheet = Roo::Spreadsheet.open("./bike-collision-database.xlsx")
