@@ -3,7 +3,7 @@ require 'httparty'
 require 'geocoder'
 require 'pry'
 
-base_uri = 'http://lyfecycle-api.herokuapp.com/locations'
+base_uri = 'http://localhost:3000/locations'
 
 # reset the database (TESTING ONLY)
 ###################################puts HTTParty.post(base_uri + '/reset', :headers => { 'Content-Type' => 'application/json' })
